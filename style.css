@@ -1,0 +1,257 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.paint-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(30, 30, 46, 0.8);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 1.5rem;
+  color: #4ECDC4;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.controls {
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.color-palette {
+  display: flex;
+  gap: 8px;
+  margin-right: 10px;
+}
+
+.color-option {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid transparent;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.color-option.active {
+  border: 2px solid white;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  border-color: #4ECDC4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px solid rgba(78, 205, 196, 0.5);
+}
+
+#reset-btn {
+  background-color: #FF6B6B;
+  color: white;
+}
+
+#reset-btn:hover {
+  background-color: #ff5252;
+}
+
+#random-color-btn {
+  background-color: #118AB2;
+  color: white;
+}
+
+#random-color-btn:hover {
+  background-color: #0e7a9b;
+}
+
+#save-btn {
+  background-color: #06D6A0;
+  color: white;
+}
+
+#save-btn:hover {
+  background-color: #05b889;
+}
+
+.canvas-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#paint-canvas {
+  background-color: white;
+  cursor: crosshair;
+  display: block;
+}
+
+/* Keyboard shortcuts info */
+.keyboard-shortcuts {
+  margin-top: 1.5rem;
+  background-color: rgba(30, 30, 46, 0.6);
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 800px;
+  text-align: left;
+}
+
+.keyboard-shortcuts h3 {
+  margin-top: 0;
+  color: #4ECDC4;
+}
+
+.keyboard-shortcuts ul {
+  padding-left: 1.5rem;
+}
+
+.keyboard-shortcuts li {
+  margin-bottom: 0.5rem;
+}
+
+.keyboard-shortcuts kbd {
+  background-color: #333;
+  border-radius: 3px;
+  border: 1px solid #666;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #f8f8f2;
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+/* Circle stats */
+.circle-stats {
+  background-color: rgba(30, 30, 46, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-left: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.circle-count {
+  font-weight: bold;
+  color: #4ECDC4;
+}
+
+/* Toast customization */
+.toastify {
+  font-weight: 500;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+  
+  .paint-app {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    color: #118AB2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .keyboard-shortcuts {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+  }
+  
+  .keyboard-shortcuts h3 {
+    color: #118AB2;
+  }
+  
+  .keyboard-shortcuts kbd {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    color: #333;
+  }
+  
+  .circle-stats {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+  }
+  
+  .circle-count {
+    color: #118AB2;
+  }
+}
